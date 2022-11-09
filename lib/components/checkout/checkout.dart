@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy_app/custom_widgets/text.dart';
 
 import '../../custom_widgets/colors.dart';
 
@@ -8,6 +9,7 @@ class CheckoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
+      backgroundColor: AppColor.mainBlue,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -25,6 +27,8 @@ class CheckoutPage extends StatelessWidget {
             child: Icon(Icons.arrow_back, size: 20, color: AppColor.mainGrey,),
           ),
         ),
+        title: XLText(text: "Checkout", color: AppColor.darkGrey,),
+        centerTitle: true,
       ),
     ));
   }

@@ -45,13 +45,11 @@ class _HomePageState extends State<HomePage> {
           titleSpacing: 10,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: Center(
-              child: Text(
+          title: Text(
             'Hello Kevin',
             style: TextStyle(color: Colors.blueGrey, fontSize: 14),
-          )
-              // BigText(text: 'Hello Kevin', color: AppColor.thirdBlue,)
-              ),
+          ),
+          centerTitle: true,
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 10.0),

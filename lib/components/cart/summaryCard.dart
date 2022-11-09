@@ -114,7 +114,7 @@ class SummaryCard extends StatelessWidget {
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: MainButtons(textValue: "CHECKOUT", onclickFunction: (){
-
+                      Navigator.pushNamed(context, "/checkout");
                     }),
                   ),
                 )

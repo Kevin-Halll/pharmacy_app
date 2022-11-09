@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/components/allCategories/allCategories.dart';
 import 'package:pharmacy_app/components/cart/cart.dart';
+import 'package:pharmacy_app/components/checkout/checkout.dart';
 import 'package:pharmacy_app/components/home/homePage.dart';
 import 'package:pharmacy_app/components/login/login.dart';
 import 'package:pharmacy_app/components/product_details/productDetails.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         '/cart': (context) => Cart(),
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
-        // '/categories': (context) => Category(),
+        '/checkout': (context) => CheckoutPage(),
         // '/user': (context) => UserProfile(),
         // 'products': (context) => Products(),
       },
