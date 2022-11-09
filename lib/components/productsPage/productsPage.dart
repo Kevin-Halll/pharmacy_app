@@ -1,24 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/components/categorySlide/categorySlide.dart';
 import 'package:pharmacy_app/components/searchBar/searchBar.dart';
-import 'package:pharmacy_app/utils/text.dart';
-
-import '../../utils/colors.dart';
+import '../../custom_widgets/colors.dart';
+import '../../custom_widgets/text.dart';
 import '../productCard/productCard.dart';
 
 class ProductsPage extends StatelessWidget {
-  var item = [1,2,3,4,5,6,7,8,9,];
-   ProductsPage({Key? key}) : super(key: key);
+  var item = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+  ];
+  ProductsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(onPressed: (){
-            Navigator.pop(context);
-          }, icon: const Icon(Icons.arrow_back,)),
-          iconTheme: IconThemeData(color: AppColor.mainGray,),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+              )),
+          iconTheme: IconThemeData(
+            color: AppColor.mainGrey,
+          ),
           titleSpacing: 10,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
@@ -28,7 +43,7 @@ class ProductsPage extends StatelessWidget {
           // ),
           actions: [
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, '/cart');
               },
               child: Padding(
@@ -39,9 +54,11 @@ class ProductsPage extends StatelessWidget {
                     height: 45,
                     decoration: BoxDecoration(
                         color: AppColor.mainBlue,
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(
+                      Icons.shopping_cart,
+                      color: AppColor.mainGrey,
                     ),
-                    child: Icon(Icons.shopping_cart, color: AppColor.mainGray,),
                   ),
                 ),
               ),
@@ -59,7 +76,10 @@ class ProductsPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BigText(text: 'Item Category', color: AppColor.thirdBlue,),
+                      BigText(
+                        text: 'Item Category',
+                        color: AppColor.thirdBlue,
+                      ),
                       GridView.count(
                           shrinkWrap: true,
                           primary: false,
@@ -70,8 +90,8 @@ class ProductsPage extends StatelessWidget {
                           childAspectRatio: 0.8,
                           children:
 
-                          // <--------------- list generated from list called categories --------------->
-                          List.generate(item.length, (index) {
+                              // <--------------- list generated from list called categories --------------->
+                              List.generate(item.length, (index) {
                             return ProductCard();
                           }))
                     ],

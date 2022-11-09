@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/components/productCard/productCard.dart';
-import 'package:pharmacy_app/utils/colors.dart';
-import 'package:pharmacy_app/utils/text.dart';
 
+import '../../custom_widgets/colors.dart';
+import '../../custom_widgets/text.dart';
 
 class Offers extends StatelessWidget {
   var item = [
@@ -12,7 +12,7 @@ class Offers extends StatelessWidget {
     4,
     5,
   ];
-   Offers({Key? key}) : super(key: key);
+  Offers({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,10 @@ class Offers extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BigText(text: "Special Offers", color: AppColor.thirdBlue,),
+          BigText(
+            text: "Special Offers",
+            color: AppColor.thirdBlue,
+          ),
           GridView.count(
               shrinkWrap: true,
               primary: false,
@@ -31,8 +34,8 @@ class Offers extends StatelessWidget {
               childAspectRatio: 0.8,
               children:
 
-              // <--------------- list generated from list called categories --------------->
-              List.generate(item.length, (index) {
+                  // <--------------- list generated from list called categories --------------->
+                  List.generate(item.length, (index) {
                 return ProductCard();
               }))
         ],

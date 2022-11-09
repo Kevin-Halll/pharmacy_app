@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy_app/utils/colors.dart';
+
+import '../../custom_widgets/colors.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});
@@ -24,25 +25,29 @@ class _ProductDetailsState extends State<ProductDetails> {
         backgroundColor: AppColor.mainBlue,
         //<------------ start of appbar section ------------>
         appBar: AppBar(
-          leading: IconButton(onPressed: (){
-            Navigator.pop(context);
-          },
-              icon: Ink(
-                width: 45,
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                ),
-                child: Icon(Icons.arrow_back),
-              ),),
-          iconTheme: IconThemeData(color: AppColor.mainGray,),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Ink(
+              width: 45,
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(Icons.arrow_back),
+            ),
+          ),
+          iconTheme: IconThemeData(
+            color: AppColor.mainGrey,
+          ),
           titleSpacing: 10,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           actions: [
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, '/cart');
               },
               child: Padding(
@@ -53,9 +58,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: 45,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(
+                      Icons.shopping_cart,
+                      color: AppColor.mainGrey,
                     ),
-                    child: Icon(Icons.shopping_cart, color: AppColor.mainGray,),
                   ),
                 ),
               ),
@@ -71,7 +78,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 height: 264,
                 width: double.infinity,
                 decoration:
-                BoxDecoration(color: Color.fromRGBO(231, 241, 248, 10)),
+                    BoxDecoration(color: Color.fromRGBO(231, 241, 248, 10)),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
                   child: Image.asset('assets/images/panadol.png'),
@@ -84,7 +91,9 @@ class _ProductDetailsState extends State<ProductDetails> {
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30)),
               ),
               padding: const EdgeInsets.fromLTRB(18, 18, 18, 0),
               child: Column(
@@ -121,8 +130,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                       //<------------ product price ------------>
                       Text(
                         '\$ $_price',
-                        style:
-                        TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.w500),
                       ),
                       Row(
                         children: [
@@ -187,12 +196,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                         minimumSize: const Size.fromHeight(50),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(24))
-                      // NEW
-                    ),
+                        // NEW
+                        ),
                     onPressed: () {},
                     child: const Text(
                       'Add to Cart',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(

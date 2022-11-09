@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/buttons.dart';
-import '../../utils/colors.dart';
-import '../../utils/inputField.dart';
-import '../../utils/text.dart';
+import '../../custom_widgets/buttons.dart';
+import '../../custom_widgets/colors.dart';
+import '../../custom_widgets/inputField.dart';
+import '../../custom_widgets/text.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -48,34 +48,38 @@ class RegisterPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.9,
                     child: Form(
                         child: Column(
-                          children: [
-                            InputField(hint: "Full Name", InputIcon: Icons.person),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            InputField(hint: "Email", InputIcon: Icons.email_outlined),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            InputField(hint: "Mobile Number", InputIcon: Icons.phone_android_outlined),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            PasswordField(hint: "Password", InputIcon: Icons.lock_outlined),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            SizedBox(
-                              height: 25,
-                            ),
-                            MainButtons(
-                              textValue: "SIGN UP",
-                              onclickFunction: () {
-                                Navigator.pushNamed(context, "/");
-                              },
-                            )
-                          ],
-                        )),
+                      children: [
+                        InputField(hint: "Full Name", InputIcon: Icons.person),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        InputField(
+                            hint: "Email", InputIcon: Icons.email_outlined),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        InputField(
+                            hint: "Mobile Number",
+                            InputIcon: Icons.phone_android_outlined),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        PasswordField(
+                            hint: "Password", InputIcon: Icons.lock_outlined),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        MainButtons(
+                          textValue: "SIGN UP",
+                          onclickFunction: () {
+                            Navigator.pushNamed(context, "/");
+                          },
+                        )
+                      ],
+                    )),
                   ),
                   SizedBox(
                     height: 60,
@@ -99,12 +103,10 @@ class RegisterPage extends StatelessWidget {
                       ],
                     ),
                   ),
-
                 ],
               ),
             ],
-          )
-      ),
+          )),
     );
   }
 }
