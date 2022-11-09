@@ -1,7 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:pharmacy_app/utils/colors.dart';
+import '../../custom_widgets/colors.dart';
 
 class Banner1 extends StatefulWidget {
   const Banner1({Key? key}) : super(key: key,);

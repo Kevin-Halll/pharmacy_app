@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy_app/utils/buttons.dart';
-
-import '../../utils/text.dart';
+import '../../custom_widgets/buttons.dart';
+import '../../custom_widgets/text.dart';
 
 class SummaryCard extends StatelessWidget {
   const SummaryCard({Key? key}) : super(key: key);

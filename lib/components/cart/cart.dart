@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/components/cart/cartCard.dart';
 import 'package:pharmacy_app/components/cart/summaryCard.dart';
-import 'package:pharmacy_app/utils/colors.dart';
+
+import '../../custom_widgets/colors.dart';
 
 
 class Cart extends StatefulWidget {
@@ -33,7 +34,7 @@ class _CartState extends State<Cart> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10)
               ),
-              child: Icon(Icons.arrow_back, size: 20, color: AppColor.mainGray,),
+              child: Icon(Icons.arrow_back, size: 20, color: AppColor.mainGrey,),
             ),
           ),
         ),
@@ -49,7 +50,7 @@ class _CartState extends State<Cart> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('${item.length} Items in cart', style: TextStyle(color: AppColor.darkGray),),
+                            Text('${item.length} Items in cart', style: TextStyle(color: AppColor.darkGrey),),
                             GestureDetector(
                               onTap: (){
                                 Navigator.pushNamed(context, '/products');
