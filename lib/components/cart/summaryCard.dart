@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy_app/utils/colors.dart';
+import 'package:pharmacy_app/utils/buttons.dart';
 
 import '../../utils/text.dart';
 
@@ -12,7 +12,7 @@ class SummaryCard extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.all(10),
-          height: 250,
+          height: 280,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -31,7 +31,9 @@ class SummaryCard extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Center(child: BigText(text: 'Payment Summary')),
+                SizedBox(
+                  height: 40,
+                    child: Center(child: BigText(text: 'Payment Summary'))),
                 Container(
                     padding: EdgeInsets.all(20),
                     child: Column(
@@ -112,17 +114,9 @@ class SummaryCard extends StatelessWidget {
                 Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    child: TextButton(onPressed: (){},
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(AppColor.secondBlue),
-                            padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 20)),
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30)
-                                )
-                            )
-                        ),
-                        child: MediumText(text: "CHECKOUT", color: Colors.white,)),
+                    child: MainButtons(textValue: "CHECKOUT", onclickFunction: (){
+
+                    }),
                   ),
                 )
 
