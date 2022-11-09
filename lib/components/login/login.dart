@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy_app/utils/buttons.dart';
 import 'package:pharmacy_app/utils/colors.dart';
+import 'package:pharmacy_app/utils/inputField.dart';
+import 'package:pharmacy_app/utils/text.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -11,15 +14,156 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Center(
               child: Column(
                 children: [
                   Image.asset('assets/images/LOGO.png'),
-                  Text('Amber Care Pharmaceuticals', style: TextStyle(color: AppColor.secondBlue),)
+                  Text(
+                    'Amber Care Pharmaceuticals',
+                    style: TextStyle(color: AppColor.secondBlue),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  XLText(
+                    text: 'Sign In',
+                    color: AppColor.secondBlue,
+                  ),
+                  SmallText(
+                    text: 'Welcome Back!',
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: Form(
+                  child: Column(
+                children: [
+                  InputField(hint: "Email", InputIcon: Icons.email_outlined),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  InputField(hint: "Password", InputIcon: Icons.lock_outline),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: Text("Forgot Password?",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                              color: AppColor.thirdBlue,
+                              decoration: TextDecoration.underline))),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  MainButtons(
+                    textValue: "SIGN IN",
+                    onclickFunction: () {
+                      Navigator.pushNamed(context, "/");
+                    },
+                  )
+                ],
+              )),
+            ),
+            SizedBox(
+              height: 40,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MediumText(text: "Don't have an account?"),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: MediumText(
+                      text: "Sign up",
+                      color: AppColor.secondBlue,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            // Divider(
+            //   thickness: 2,
+            // ),
+            SizedBox(
+                height: 50,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: Row(children: <Widget>[
+                  Expanded(
+                      child: Divider(
+                    endIndent: 10,
+                    thickness: 1,
+                  )),
+                  MediumText(text: "OR", color: AppColor.mainGray,),
+                  Expanded(
+                      child: Divider(
+                    indent: 10,
+                    thickness: 1,
+                  )),
+                ])),
+
+            Container(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: 50,
+              decoration: BoxDecoration(
+                color: AppColor.mainBlue,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 30,
+                    child: Image.asset("assets/images/facebook.png"),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Sign in with Facebook',
+                    style: TextStyle(color: AppColor.mainGray),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: 50,
+              decoration: BoxDecoration(
+                color: AppColor.mainBlue,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 30,
+                    child: Image.asset("assets/images/google.png"),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Sign in with Google',
+                    style: TextStyle(color: AppColor.mainGray),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

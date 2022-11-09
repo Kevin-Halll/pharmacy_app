@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/components/productCard/productCard.dart';
 import 'package:pharmacy_app/utils/colors.dart';
+import 'package:pharmacy_app/utils/text.dart';
 
 
 class Offers extends StatelessWidget {
@@ -19,13 +20,7 @@ class Offers extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Special Offers',
-            style: TextStyle(
-              color: AppColor.thirdBlue,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          BigText(text: "Special Offers", color: AppColor.thirdBlue,),
           GridView.count(
               shrinkWrap: true,
               primary: false,
