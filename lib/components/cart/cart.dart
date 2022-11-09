@@ -16,76 +16,78 @@ class _CartState extends State<Cart> {
 
    @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.mainBlue,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: (){
-            Navigator.pop(context);
-          },
-          icon: Ink(
-            width: 45,
-            height: 45,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10)
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColor.mainBlue,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            icon: Ink(
+              width: 45,
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Icon(Icons.arrow_back, size: 20, color: AppColor.mainGray,),
             ),
-            child: Icon(Icons.arrow_back, size: 20, color: AppColor.mainGray,),
           ),
         ),
-      ),
-      body: Container(
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('${item.length} Items in cart', style: TextStyle(color: AppColor.darkGray),),
-                          GestureDetector(
-                            onTap: (){
-                              Navigator.pushNamed(context, '/products');
-                            },
-                            child: Row(
-                              children: [
-                                Icon(Icons.add, size: 14, color: AppColor.thirdBlue,),
-                                Text('Add More Items', style: TextStyle(color: AppColor.thirdBlue),),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 20,),
-                      Stack(
-                        children: [
-                          SizedBox(
-                            height: 330,
-                            child: ListView.builder(
-                              itemCount: item.length,
-                              itemBuilder: (context, index){
-                                return const CartCard();
+        body: Container(
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('${item.length} Items in cart', style: TextStyle(color: AppColor.darkGray),),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.pushNamed(context, '/products');
                               },
+                              child: Row(
+                                children: [
+                                  Icon(Icons.add, size: 14, color: AppColor.thirdBlue,),
+                                  Text('Add More Items', style: TextStyle(color: AppColor.thirdBlue),),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 20,),
+                        Stack(
+                          children: [
+                            SizedBox(
+                              height: 330,
+                              child: ListView.builder(
+                                itemCount: item.length,
+                                itemBuilder: (context, index){
+                                  return const CartCard();
+                                },
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Positioned(
-              bottom: 0,
-              child: SummaryCard(),
-            ),
-          ],
+                ],
+              ),
+              Positioned(
+                bottom: 0,
+                child: SummaryCard(),
+              ),
+            ],
+          ),
         ),
       ),
     );

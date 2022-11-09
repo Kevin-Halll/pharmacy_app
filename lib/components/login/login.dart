@@ -6,20 +6,22 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          SizedBox(height: 40,),
-          Center(
-            child: Column(
-              children: [
-                Image.asset('assets/images/LOGO.png'),
-                Text('Amber Care Pharmaceuticals', style: TextStyle(color: AppColor.secondBlue),)
-              ],
-            ),
-          )
-        ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            SizedBox(height: 40,),
+            Center(
+              child: Column(
+                children: [
+                  Image.asset('assets/images/LOGO.png'),
+                  Text('Amber Care Pharmaceuticals', style: TextStyle(color: AppColor.secondBlue),)
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
