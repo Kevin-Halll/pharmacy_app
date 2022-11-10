@@ -33,8 +33,16 @@ class CheckoutPage extends StatelessWidget {
 
       body: ListView(
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
+          SizedBox(height: 30,),
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: 200,
+              decoration: BoxDecoration(
+                color: AppColor.thirdBlue,
+                borderRadius: BorderRadius.circular(30)
+              ),
+            ),
           )
         ],
       ),

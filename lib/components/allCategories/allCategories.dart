@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/components/categoryCard/categoryCard.dart';
-import 'package:pharmacy_app/utils/text.dart';
 
-import '../../utils/colors.dart';
+import '../../custom_widgets/colors.dart';
+import '../../custom_widgets/text.dart';
+
 
 class allCategories extends StatelessWidget {
   var items = [1,2,3,4,5,6,7,8,9];
@@ -22,7 +23,7 @@ class allCategories extends StatelessWidget {
                 Icons.arrow_back,
               )),
           iconTheme: IconThemeData(
-            color: AppColor.mainGray,
+            color: AppColor.mainGrey,
           ),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
