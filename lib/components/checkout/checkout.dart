@@ -30,6 +30,14 @@ class CheckoutPage extends StatelessWidget {
         title: XLText(text: "Checkout", color: AppColor.darkGrey,),
         centerTitle: true,
       ),
+
+      body: ListView(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+          )
+        ],
+      ),
     ));
   }
 }
