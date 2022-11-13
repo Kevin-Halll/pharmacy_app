@@ -6,6 +6,8 @@ import 'package:pharmacy_app/components/login/login.dart';
 import 'package:pharmacy_app/components/product_details/productDetails.dart';
 import 'package:pharmacy_app/components/productsPage/productsPage.dart';
 
+import 'components/profile_edit/components_edit_profile/edit_profile_items.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         '/details': (context) => ProductDetails(),
         '/cart': (context) => Cart(),
         '/login': (context) => LoginPage(),
-        // '/register': (context) => Registration(),
+        '/profile-edit': (context) => EditProfileItems(),
         // '/categories': (context) => Category(),
         // '/user': (context) => UserProfile(),
         // 'products': (context) => Products(),
