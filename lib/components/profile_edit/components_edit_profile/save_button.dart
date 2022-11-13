@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile_edit_mock/constants_edit_profile/constants.dart';
+import 'package:pharmacy_app/components/profile_edit/constants_edit_profile/constants.dart';
 
 class SaveButton extends StatelessWidget {
   SaveButton(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile_edit_mock/components_edit_profile/custom_text_field.dart';
+import 'package:pharmacy_app/components/profile_edit/components_edit_profile/custom_text_field.dart';
 
 import 'save_button.dart';
 import 'title_specs.dart';

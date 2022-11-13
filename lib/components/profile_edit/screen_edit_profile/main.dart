@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile_edit_mock/components_edit_profile/edit_profile_items.dart';
+import 'package:pharmacy_app/components/profile_edit/components_edit_profile/edit_profile_items.dart';
 
 void main() {
   runApp(EditProfile());
