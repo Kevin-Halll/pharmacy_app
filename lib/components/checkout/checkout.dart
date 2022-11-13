@@ -36,14 +36,29 @@ class CheckoutPage extends StatelessWidget {
           SizedBox(height: 30,),
           Center(
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: 200,
+              width: 320,
+              height: 180,
               decoration: BoxDecoration(
-                color: AppColor.thirdBlue,
-                borderRadius: BorderRadius.circular(30)
+                color: AppColor.secondBlue,
+                borderRadius: BorderRadius.circular(10),
+                // image: const DecorationImage(image: AssetImage("assets/images/credit_card.png"),
+                //   fit: BoxFit.cover,
+                // ),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey)
+                    ),
+                    child: Text("XXXX XXXX XXXX XXXX", style: TextStyle(color: Colors.white, fontSize: 20),),
+                  )
+                ],
               ),
             ),
-          )
+          ),
+
         ],
       ),
     ));
