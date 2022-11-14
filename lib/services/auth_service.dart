@@ -93,7 +93,7 @@ class AuthService {
     if (token == "") return false;
     //TODO Update auth check url
     final http.Response response = await http.get(
-      Uri.parse("$apiBase/recipes"),
+      Uri.parse("$apiBase/products"),
       headers: <String, String>{
         'Content-Type': "application/json; charset=UTF-8",
         'Authorization': "Bearer $token",

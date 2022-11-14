@@ -5,12 +5,18 @@ import 'package:flutter/material.dart';
 class InputField extends StatefulWidget {
   final String hint;
   final controllerName;
+  final int? maxLength;
   final IconData InputIcon;
-  const InputField(
-      {super.key,
-      required this.hint,
-      this.controllerName,
-      required this.InputIcon});
+  String? Function(String?) validator;
+
+  InputField({
+    super.key,
+    required this.hint,
+    this.controllerName,
+    this.maxLength,
+    required this.validator,
+    required this.InputIcon,
+  });
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -19,7 +25,9 @@ class InputField extends StatefulWidget {
 class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      maxLength: widget.maxLength,
+      validator: widget.validator,
       controller: widget.controllerName,
       decoration: InputDecoration(
         prefixIcon:
@@ -44,13 +52,19 @@ class _InputFieldState extends State<InputField> {
 // password field
 class PasswordField extends StatefulWidget {
   final String hint;
+  final int? maxLength;
   final controllerName;
   final IconData InputIcon;
-  const PasswordField(
-      {super.key,
-      required this.hint,
-      this.controllerName,
-      required this.InputIcon});
+  String? Function(String?) validator;
+
+  PasswordField({
+    super.key,
+    this.controllerName,
+    this.maxLength,
+    required this.hint,
+    required this.InputIcon,
+    required this.validator,
+  });
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
@@ -62,12 +76,16 @@ class _PasswordFieldState extends State<PasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      maxLength: widget.maxLength,
       controller: widget.controllerName,
+      validator: widget.validator,
       obscureText: _obscureText,
       decoration: InputDecoration(
-        prefixIcon:
-            Icon(widget.InputIcon, color: Color.fromRGBO(121, 116, 116, 10)),
+        prefixIcon: Icon(
+          widget.InputIcon,
+          color: Color.fromRGBO(121, 116, 116, 10),
+        ),
 
         // shows or hides password
         suffixIcon: GestureDetector(
@@ -86,7 +104,9 @@ class _PasswordFieldState extends State<PasswordField> {
             color: Color.fromRGBO(121, 116, 116, 10),
           ),
         ),
-        hintStyle: TextStyle(color: Color.fromRGBO(121, 116, 116, 10)),
+        hintStyle: TextStyle(
+          color: Color.fromRGBO(121, 116, 116, 10),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40),
           borderSide: const BorderSide(
