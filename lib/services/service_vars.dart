@@ -1,3 +1,3 @@
 class ServiceVars {
-  String apiBaseUrl = "http://192.168.56.1:8080/api/v1";
+  String apiBaseUrl = "https://pharmacy-api-eta.vercel.app/api/v1";
 }
