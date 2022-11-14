@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy_app/utils/colors.dart';
 
+import '../../custom_widgets/colors.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({Key? key}) : super(key: key);
@@ -8,7 +8,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Navigator.pushNamed(context, '/details');
       },
       child: Container(
@@ -21,7 +21,7 @@ class ProductCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              // width: 130,
+                // width: 130,
                 height: 110,
                 child: Image.asset(
                   'assets/images/panadol.png',
@@ -41,7 +41,8 @@ class ProductCard extends StatelessWidget {
                   children: [
                     Text("\$500",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: AppColor.thirdBlue)),
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.thirdBlue)),
                     IconButton(
                         onPressed: () {},
                         icon: Icon(

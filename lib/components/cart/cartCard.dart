@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy_app/utils/colors.dart';
-import 'package:pharmacy_app/utils/text.dart';
+
+import '../../custom_widgets/colors.dart';
+import '../../custom_widgets/text.dart';
 
 class CartCard extends StatefulWidget {
   const CartCard({Key? key}) : super(key: key);
@@ -131,7 +132,7 @@ class _CartCardState extends State<CartCard> {
                         child: Icon(
                   Icons.close,
                   size: 20,
-                  color: AppColor.mainGray,
+                  color: AppColor.mainGrey,
                 ))),
               ),
             ),

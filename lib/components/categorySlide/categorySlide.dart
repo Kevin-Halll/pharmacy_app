@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/components/categoryCard/categoryCard.dart';
-import 'package:pharmacy_app/utils/colors.dart';
+
+import '../../custom_widgets/colors.dart';
 
 
 class CategorySlide extends StatelessWidget {
