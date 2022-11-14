@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pharmacy_app/services/service_vars.dart';
 
 import '../../models/user.dart';
 import 'local_storage.dart';
 
 class AuthService {
-  final String apiBase = "http://192.168.56.1:8080/api/v1";
+  final String apiBase = ServiceVars().apiBaseUrl;
 
   Future<Map<String, dynamic>> register(User user) async {
     Map data = {
