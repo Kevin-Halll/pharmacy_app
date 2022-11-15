@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:pharmacy_app/components/add_new_card/add_new_card.dart';
 import 'package:pharmacy_app/components/allCategories/allCategories.dart';
 import 'package:pharmacy_app/components/cart/cart.dart';
 import 'package:pharmacy_app/components/checkout/checkout.dart';
@@ -11,6 +12,8 @@ import 'package:pharmacy_app/components/productsPage/productsPage.dart';
 import 'package:pharmacy_app/components/register/register.dart';
 import 'package:pharmacy_app/models/user.dart';
 import 'package:pharmacy_app/services/auth_service.dart';
+
+import 'components/profile_edit/components_edit_profile/edit_profile_items.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +58,9 @@ class MyApp extends StatelessWidget {
         '/details': (context) => ProductDetails(),
         '/cart': (context) => Cart(),
         '/login': (context) => LoginPage(),
+        '/profile-edit': (context) => EditProfileItems(),
+        '/add-new-card': (context) => Add_New_Card(),
+        // '/categories': (context) => Category(),
         '/register': (context) => RegisterPage(),
         '/checkout': (context) => CheckoutPage(),
         // '/user': (context) => UserProfile(),
