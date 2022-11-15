@@ -25,6 +25,8 @@ class _LoginPageState extends State<LoginPage> {
 
   final _authService = AuthService();
 
+  bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -93,28 +95,34 @@ class _LoginPageState extends State<LoginPage> {
                               return null;
                             },
                           ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              "Forgot Password?",
-                              textAlign: TextAlign.end,
-                              style: TextStyle(
-                                color: AppColor.thirdBlue,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
+                          // const SizedBox(
+                          //   height: 15,
+                          // ),
+                          // Align(
+                          //   alignment: Alignment.topLeft,
+                          //   child: Text(
+                          //     "Forgot Password?",
+                          //     textAlign: TextAlign.end,
+                          //     style: TextStyle(
+                          //       color: AppColor.thirdBlue,
+                          //       decoration: TextDecoration.underline,
+                          //     ),
+                          //   ),
+                          // ),
                           const SizedBox(
                             height: 25,
                           ),
                           MainButtons(
-                              textValue: "SIGN IN",
+                              isLoading: _isLoading,
+                              text: "Sign In",
                               onclickFunction: () async {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
+
+                                  // Enable button loading state
+                                  setState(() {
+                                    _isLoading = true;
+                                  });
 
                                   String? loginErrorMessage =
                                       await _authService.login(
@@ -123,6 +131,11 @@ class _LoginPageState extends State<LoginPage> {
                                       password: _passwordController.text,
                                     ),
                                   );
+
+                                  // Disable button loading state
+                                  setState(() {
+                                    _isLoading = false;
+                                  });
 
                                   bool loginFailed =
                                       loginErrorMessage != null ? true : false;
@@ -173,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                                           ),
                                         ),
                                         actions: <Widget>[
-                                          Builder(builder: (_context) {
+                                          Builder(builder: (builderContext) {
                                             ScaffoldMessenger.of(context)
                                                 .hideCurrentMaterialBanner();
                                             Timer(

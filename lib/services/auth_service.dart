@@ -119,9 +119,9 @@ class AuthService {
     return false;
   }
 
-  Future<String> getLocalUser(String userKey) async {
-    String user = await LocalStorage.readString(userKey);
-
+  Future<String?> getLocalUser(String userKey) async {
+    print("Made it thus far without error");
+    var user = await LocalStorage.readString(userKey);
     return user;
   }
 

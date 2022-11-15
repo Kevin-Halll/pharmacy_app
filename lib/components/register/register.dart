@@ -168,7 +168,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 25,
                         ),
                         MainButtons(
-                          textValue: "SIGN UP",
+                          isLoading: false,
+                          text: "SIGN UP",
                           onclickFunction: () async {
                             if (_formKey.currentState!.validate()) {
                               _formKey.currentState!.save();
