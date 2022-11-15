@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmacy_app/custom_widgets/colors.dart';
+import 'package:pharmacy_app/models/User.dart';
+import 'package:pharmacy_app/services/auth_service.dart';
 
 class HamburgerMenu extends StatefulWidget {
   const HamburgerMenu({super.key});
@@ -9,10 +14,6 @@ class HamburgerMenu extends StatefulWidget {
 }
 
 class _HamburgerMenuState extends State<HamburgerMenu> {
-  //<------------ variables to be substituted with data from database ------------>
-  String _firstName = 'Janet';
-  String _lastName = 'Williams';
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -20,21 +21,36 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
         //<------------ menu information section ------------>
         padding: EdgeInsets.zero,
         children: <Widget>[
-          UserAccountsDrawerHeader(
-            accountName: Text('$_firstName ' '$_lastName'),
-            accountEmail: Text("janet977@gmail.com"),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Text(
-                "${_firstName[0]}",
-                style: TextStyle(fontSize: 40.0),
-              ),
-            ),
+          FutureBuilder<String?>(
+            future: AuthService().getLocalUser("user"),
+            builder: (context, snapshot) {
+              //
+              if (snapshot.hasData &&
+                  snapshot.data != null &&
+                  snapshot.data != "") {
+                final user = jsonDecode(snapshot.data!);
+
+                return UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color: AppColor.secondBlue),
+                  accountName: Text(user['fullName'] ?? "Username"),
+                  accountEmail: Text(user['email']),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    child: Text(
+                      user['fullName']?.split((" "))[0] ?? "Username",
+                      style: const TextStyle(fontSize: 40.0),
+                    ),
+                  ),
+                );
+              } else {
+                return Container();
+              }
+            },
           ),
 
           //<------------  list tile has each section ------------>
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.home,
             ),
             title: const Text('Home'),
@@ -45,7 +61,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
 
           //<------------  list tile has each section ------------>
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.medication,
             ),
             title: const Text('Medication Tracker'),
@@ -56,7 +72,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
 
           //<------------  list tile has each section ------------>
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.settings,
             ),
             title: const Text('Settings'),
@@ -66,12 +82,16 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
           ),
 
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.power_settings_new,
             ),
             title: const Text('Logout'),
-            onTap: () {
-              // Navigator.pop(context);
+            onTap: () async {
+              await AuthService().logout();
+
+              // Checks if widget context is mounted
+              if (!mounted) return;
+
               Navigator.pushNamed(context, '/login');
             },
           ),
