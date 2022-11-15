@@ -15,7 +15,8 @@ class SummaryCard extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30)),
             // border: Border.all(color: Colors.grey, style: BorderStyle.solid),
             boxShadow: [
               BoxShadow(
@@ -27,60 +28,55 @@ class SummaryCard extends StatelessWidget {
             ],
           ),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: 40,
+                    height: 40,
                     child: Center(child: BigText(text: 'Payment Summary'))),
                 Container(
                     padding: EdgeInsets.all(20),
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 2, horizontal: 0),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 2, horizontal: 0),
                           decoration: BoxDecoration(
                             border: Border(
-                              bottom: BorderSide(width: 1,color: Colors.grey),
+                              bottom: BorderSide(width: 1, color: Colors.grey),
                             ),
                             color: Colors.white,
                           ),
                           child: Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               MediumText(text: 'Sub Total'),
                               MediumText(text: '\$1088'),
                             ],
                           ),
                         ),
-
                         Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 8, horizontal: 0),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 8, horizontal: 0),
                           decoration: BoxDecoration(
                             border: Border(
-                              bottom: BorderSide(width: 1,color: Colors.grey),
+                              bottom: BorderSide(width: 1, color: Colors.grey),
                             ),
                             color: Colors.white,
                           ),
                           child: Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               MediumText(text: 'Tax'),
                               MediumText(text: '15%'),
                             ],
                           ),
                         ),
-
                         Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 8, horizontal: 0),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 8, horizontal: 0),
                           child: Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               MediumText(text: 'Total'),
                               MediumText(text: '\$1950.00'),
@@ -113,13 +109,14 @@ class SummaryCard extends StatelessWidget {
                 Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    child: MainButtons(textValue: "CHECKOUT", onclickFunction: (){
-                      Navigator.pushNamed(context, "/checkout");
-                    }),
+                    child: MainButtons(
+                        isLoading: false,
+                        text: "CHECKOUT",
+                        onclickFunction: () {
+                          Navigator.pushNamed(context, "/checkout");
+                        }),
                   ),
                 )
-
-
               ]),
         ),
       ],

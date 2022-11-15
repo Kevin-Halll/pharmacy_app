@@ -7,9 +7,9 @@ class LocalStorage {
     return await prefs.setString(key, value);
   }
 
-  static Future<String> readString(String key) async {
+  static Future<String?> readString(String key) async {
     final prefs = await SharedPreferences.getInstance();
-    final String value = prefs.getString(key) ?? "";
+    final String? value = prefs.getString(key);
 
     return value;
   }
