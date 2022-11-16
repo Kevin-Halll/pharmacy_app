@@ -5,12 +5,11 @@ import 'package:pharmacy_app/components/categorySlide/categorySlide.dart';
 import 'package:pharmacy_app/components/drawer/appDrawer.dart';
 import 'package:pharmacy_app/components/searchBar/searchBar.dart';
 import 'package:pharmacy_app/components/specialOffers/specialOffers.dart';
-import 'package:pharmacy_app/models/User.dart';
 import 'package:pharmacy_app/services/auth_service.dart';
-import 'package:pharmacy_app/services/local_storage.dart';
 
 import '../../custom_widgets/colors.dart';
 import '../banner/banner.dart';
+import '../login/login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,41 +20,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  late User user;
-
   @override
   void initState() {
     super.initState();
-
-    getUserFromStorage();
-  }
-
-  getUserFromStorage() async {
-    var userAsJson = await LocalStorage.readString("user");
-    var userData = jsonDecode(userAsJson);
-    user = User(
-      email: userData['email'],
-      password: userData['password'],
-      fullName: userData['fullName'],
-      role: userData['role'],
-      phoneNumber: userData['phoneNumber'],
-      id: userData['_id'],
-    );
-    setState(() {});
   }
 
   bool actionLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    getUserFromStorage();
     return SafeArea(
       child: Scaffold(
         key: _key,
-        drawer: HamburgerMenu(
-          email: user.email,
-          fullName: user.fullName ?? "Guest",
-        ),
+        drawer: const HamburgerMenu(),
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -78,10 +55,26 @@ class _HomePageState extends State<HomePage> {
           titleSpacing: 10,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          title: Text(
-            '👋 Hello, ${user.fullName?.split(" ")[0].trim()}',
-            style: const TextStyle(color: Colors.blueGrey, fontSize: 14),
-          ),
+          title: FutureBuilder<String?>(
+              future: AuthService().getLocalUser('user'),
+              builder: (context, snapshot) {
+                if (snapshot.hasData &&
+                    snapshot.data != null &&
+                    snapshot.data != "") {
+                  final user = jsonDecode(snapshot.data!);
+
+                  return Text(
+                    '👋 Hello, ${user['fullName'].split(" ")[0].trim()}',
+                    style:
+                        const TextStyle(color: Colors.blueGrey, fontSize: 14),
+                  );
+                } else {
+                  return const Text(
+                    '🎊 Welcome Back!',
+                    style: TextStyle(color: Colors.blueGrey, fontSize: 14),
+                  );
+                }
+              }),
           centerTitle: true,
           actions: [
             Padding(
